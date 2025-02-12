@@ -32,7 +32,7 @@ function HealthRecordPage() {
 
   async function fetchHealthRecord(UserID) {
     try {
-      const response = await fetch(`http://localhost/hms-backend//api/fetchHealthRecord.php?UserID=${UserID}`);
+      const response = await fetch(`http://localhost/hms-backend/api/fetchHealthRecord.php?UserID=${UserID}`);
       if (!response.ok) {
         throw new Error('Health record not found, starting in edit mode.');
       }
@@ -64,7 +64,7 @@ function HealthRecordPage() {
     }
 
     try {
-      const response = await fetch(`http://localhost/hms-backend//api/saveHealthRecord.php`, {
+      const response = await fetch(`http://localhost/hms-backend/api/saveHealthRecord.php`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

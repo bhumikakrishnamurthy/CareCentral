@@ -17,34 +17,42 @@ export default function HealthAdministratorSidebar() {
   useEffect(() => {
     const fetchAdminDetails = async () => {
       try {
-        // Get UserID from session storage or wherever it's stored
         const UserID = sessionStorage.getItem('UserID');
-  
+
         if (!UserID) {
-          // Handle the case where UserID is not available
           console.error('UserID is not available.');
           return;
         }
-  
-        const response = await fetch(`http://localhost/hms-backend//api/adminprofile.php/${UserID}`, {
+
+        const response = await fetch(`http://localhost/hms-backend/api/adminprofile.php/${UserID}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
         });
-  
+
         if (!response.ok) {
           throw new Error('Network response was not ok.');
         }
-  
+
         const data = await response.json();
-        setAdminDetails(data[0]);
+        console.log(data); // Log the response data
+
+        // Filter the data to find the user with the matching UserID
+        const user = data.find(user => user.ID == UserID);
+
+        if (user) {
+          setAdminDetails(user); // Set the filtered user object
+        } else {
+          console.error('User not found in the response.');
+        }
       } catch (error) {
         console.error('Error fetching admin details:', error);
       }
     };
+
     fetchAdminDetails();
-  }, []);
+  }, []); 
 
   const navigate = useNavigate();
 

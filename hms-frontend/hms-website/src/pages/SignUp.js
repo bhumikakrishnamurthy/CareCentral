@@ -115,7 +115,7 @@ const SignUp = () => {
 
     if (isValid) {
       try {
-        const response = await fetch('http://localhost/hms-backend//api/', {
+        const response = await fetch('http://localhost/hms-backend/api/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

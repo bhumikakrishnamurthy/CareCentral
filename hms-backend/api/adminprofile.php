@@ -1,7 +1,7 @@
 <?php
 
 // Set CORS headers
-header('Access-Control-Allow-Origin: http://localhost/hms-backend/:3000');
+header('Access-Control-Allow-Origin: http://localhost:3000');
 header('Access-Control-Allow-Credentials: true');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Authorization');
@@ -50,12 +50,36 @@ switch ($method) {
         break;
 }
 
+/*function handleGetRequest($conn) {
+    $sql = "SELECT FirstName, LastName, Email, ID, ContactNumber FROM tblusers";
+    $params = [];
+    
+    $path = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
+    $idIndex = array_search('php', $path) + 2; // Adjust based on actual URL structure
+
+    if (isset($path[$idIndex]) && is_numeric($path[$idIndex])) {
+        $sql .= " WHERE ID = :id";
+        $params[':id'] = $path[$idIndex];
+    }
+
+    $stmt = $conn->prepare($sql);
+
+    foreach ($params as $key => &$val) {
+        $stmt->bindParam($key, $val);
+    }
+
+    $stmt->execute();
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    echo json_encode($users);
+}
+*/
 function handleGetRequest($conn) {
     $sql = "SELECT FirstName, LastName, Email, ID, ContactNumber FROM tblusers";
     $params = [];
-
+    
     $path = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
-    $idIndex = array_search('php', $path) + 2; // Adjust based on actual URL structure
+    $idIndex = array_search('adminprofile.php', $path) + 1; // Adjust based on actual URL structure
 
     if (isset($path[$idIndex]) && is_numeric($path[$idIndex])) {
         $sql .= " WHERE ID = :id";

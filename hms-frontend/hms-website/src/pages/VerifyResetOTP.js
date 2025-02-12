@@ -25,7 +25,7 @@ const VerifyResetOTP = () => {
         const formData = new FormData();
         formData.append('check', true);
         formData.append('otp', otpValue);
-        const response = await fetch('http://localhost/hms-backend//api/reset-code.php', {
+        const response = await fetch('http://localhost/hms-backend/api/reset-code.php', {
           method: 'POST',
           body: formData,
           credentials: 'include',

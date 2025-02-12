@@ -1,12 +1,11 @@
-import React, {useState, useEffect} from 'react';
-import { Link, useMatch, useResolvedPath, useNavigate} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useMatch, useResolvedPath, useNavigate } from 'react-router-dom';
 import faceImage from '../adminImages/faces/face8.jpg';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdClose } from 'react-icons/io';
-import { FiLogOut } from 'react-icons/fi'
+import { FiLogOut } from 'react-icons/fi';
 
-export default function AdminSidebar(){
-
+export default function AdminSidebar() {
   const [adminDetails, setAdminDetails] = useState({
     FirstName: '',
     LastName: '',
@@ -17,42 +16,52 @@ export default function AdminSidebar(){
   useEffect(() => {
     const fetchAdminDetails = async () => {
       try {
-        // Get UserID from session storage or wherever it's stored
         const UserID = sessionStorage.getItem('UserID');
-  
+        console.log("UserID from sessionStorage:", UserID);
+
         if (!UserID) {
-          // Handle the case where UserID is not available
           console.error('UserID is not available.');
           return;
         }
-  
-        const response = await fetch(`http://localhost/hms-backend//api/adminprofile.php/${UserID}`, {
+
+        const response = await fetch(`http://localhost/hms-backend/api/adminprofile.php/${UserID}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
         });
-  
+
         if (!response.ok) {
           throw new Error('Network response was not ok.');
         }
-  
+
         const data = await response.json();
-        setAdminDetails(data[0]);
+        console.log("Fetched Data:", data);
+
+        // Filter the data to find the user with the matching UserID
+        const user = data.find(user => user.ID === parseInt(UserID));
+
+        if (user) {
+          console.log("Filtered User:", user);
+          setAdminDetails(user); // Set the filtered user object
+        } else {
+          console.error('User not found in the response.');
+        }
       } catch (error) {
         console.error('Error fetching admin details:', error);
       }
     };
+
     fetchAdminDetails();
   }, []);
 
   const navigate = useNavigate();
 
-    const logout = () => {
-      sessionStorage.setItem("UserID", "");
-      sessionStorage.clear();
-      navigate('/')
-    };
+  const logout = () => {
+    sessionStorage.setItem("UserID", "");
+    sessionStorage.clear();
+    navigate('/');
+  };
 
   const [showSidebar, setShowSidebar] = useState(false);
 
@@ -62,8 +71,8 @@ export default function AdminSidebar(){
 
   const sidebarStyle = {
     width: '250px',
-    background: '#333', // Adjust the background color
-    color: 'white', // Adjust the text color
+    background: '#333',
+    color: 'white',
     position: 'fixed',
     top: 0,
     paddingTop: 40,
@@ -103,17 +112,17 @@ export default function AdminSidebar(){
         <nav className="sidebar sidebar-offcanvas" id="sidebar" style={sidebarStyle}>
           <ul className="nav">
             <li className="nav-item nav-profile">
-            <CustomLink to="/ProfileAdmin" className="nav-link">
+              <CustomLink to="/ProfileAdmin" className="nav-link">
                 <div className="profile-image">
-                  <img className="img-xs rounded-circle" src={faceImage} alt='ProfileImage'/>
+                  <img className="img-xs rounded-circle" src={faceImage} alt="ProfileImage" />
                   <div className="dot-indicator bg-success"></div>
                 </div>
                 <div className="text-wrapper">
                   <p className="profile-name">{adminDetails.FirstName || 'Loading...'}</p>
                   <p className="designation">{adminDetails.Email || 'Loading...'}</p>
                 </div>
-                </CustomLink>            
-                </li>
+              </CustomLink>
+            </li>
             <li className="nav-item nav-category">
               <span className="nav-link">Dashboard</span>
             </li>
@@ -127,14 +136,16 @@ export default function AdminSidebar(){
               <span className="nav-link">Chat</span>
             </li>
             <li className="nav-item">
-            <CustomLink to="/Chat" className="nav-link">
+              <CustomLink to="/Chat" className="nav-link">
                 <span className="menu-title">Chat</span>
                 <i className="icon-screen-desktop menu-icon"></i>
               </CustomLink>
             </li>
-            <br/>
+            <br />
             <li className="nav-item">
-              <button type="button" onClick={logout} style={{ background: 'none', border: 'none', color: 'white', width: '100%', height:'36px' , padding: '0', margin: '0', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}><FiLogOut style={{ marginRight: '8px' }} />  Logout</button>
+              <button type="button" onClick={logout} style={{ background: 'none', border: 'none', color: 'white', width: '100%', height: '36px', padding: '0', margin: '0', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
+                <FiLogOut style={{ marginRight: '8px' }} /> Logout
+              </button>
             </li>
           </ul>
         </nav>

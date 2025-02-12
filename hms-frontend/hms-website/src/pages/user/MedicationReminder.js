@@ -28,7 +28,7 @@ function MedicationReminder() {
 
   const fetchReminders = async (UserID) => {
     try {
-      const response = await fetch(`http://localhost/hms-backend//api/reminders.php?userID=${UserID}`);
+      const response = await fetch(`http://localhost/hms-backend/api/reminders.php?userID=${UserID}`);
       if (!response.ok) {
         throw new Error('Failed to fetch reminders');
       }
@@ -42,7 +42,7 @@ function MedicationReminder() {
     }
   };
 
-  const addReminder = async () => {
+/*  const addReminder = async () => {
     // Check if the medicine name or time is empty
     if (!newReminderName.trim() || !newReminderTime.trim()) {
       alert('Error: Medicine name and time cannot be empty.');
@@ -50,7 +50,7 @@ function MedicationReminder() {
     }
 
     try {
-      const response = await fetch('http://localhost/hms-backend//api/reminders.php', {
+      const response = await fetch('http://localhost/api/reminders.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -80,10 +80,50 @@ function MedicationReminder() {
       alert('Error adding reminder: ' + error.message);
     }
   };
+*/
+  const addReminder = async () => {
+    console.log("Medicine Name:", newReminderName);
+    console.log("Time:", newReminderTime);
 
+    if (!newReminderName.trim() || !newReminderTime.trim()) {
+      alert('Error: Medicine name and time cannot be empty.');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost/hms-backend/api/reminders.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userID: userId,
+          reminderName: newReminderName,
+          reminderTime: newReminderTime,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to add reminder');
+      }
+
+      const data = await response.json();
+      if (!data) {
+        throw new Error('Empty response received');
+      }
+
+      setReminders([...reminders, data]);
+      setNewReminderName(''); // Reset name field
+      setNewReminderTime(''); // Reset time field
+      fetchReminders(userId);
+    } catch (error) {
+      alert('Error adding reminder: ' + error.message);
+      
+    }
+  };
   const deleteReminder = async (reminderID) => {
     try {
-      const response = await fetch(`http://localhost/hms-backend//api/reminders.php?reminderID=${reminderID}`, {
+      const response = await fetch(`http://localhost/hms-backend/api/reminders.php?reminderID=${reminderID}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
@@ -135,17 +175,23 @@ function MedicationReminder() {
             />
           </Grid>
           <Grid item xs={12} md={6}>
-            <TextField
-              label="Time"
-              type="time"
-              variant="outlined"
-              fullWidth
-              value={newReminderTime}
-              onChange={(e) => setNewReminderTime(e.target.value)}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
+          <TextField
+            label="Time"
+            type="time"
+            variant="outlined"
+            fullWidth
+            value={newReminderTime}
+            onChange={(e) => {
+              console.log("Time Input Value:", e.target.value); // Debugging
+              setNewReminderTime(e.target.value);
+            }}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            inputProps={{
+              step: 300, // 5-minute intervals
+            }}
+          />
           </Grid>
           <Grid item xs={12}>
             <Button variant="contained" color="primary" onClick={addReminder}>Add Reminder</Button>

@@ -17,7 +17,7 @@ const ForgotPassword = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost/hms-backend//api/resetpassword.php', {
+      const response = await fetch('http://localhost/hms-backend/api/resetpassword.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

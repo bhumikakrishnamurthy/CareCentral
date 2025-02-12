@@ -25,7 +25,7 @@ const VerifyOTP = () => {
         const formData = new FormData();
         formData.append('check', true);
         formData.append('otp', otpValue);
-        const response = await fetch('http://localhost/hms-backend//api/verifyotp.php', {
+        const response = await fetch('http://localhost/hms-backend/api/verifyotp.php', {
           method: 'POST',
           body: formData, // Send OTP to server
           credentials: 'include',

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { PostData } from "../postdata";
 import faceImage from '../adminImages/faces/face8.jpg';
-import { Link, useMatch, useResolvedPath } from 'react-router-dom';
+import { Link, useMatch, useResolvedPath, useNavigate } from 'react-router-dom'; // Import useNavigate
 import Header from '../components/Header';
 
 class Chat extends Component {
@@ -26,7 +26,7 @@ class Chat extends Component {
     }
 
     // Append the "ID" parameter to the URL
-    const url = `http://localhost/hms-backend//api/chathome.php?ID=${UserID}`;
+    const url = `http://localhost/hms-backend/api/chathome.php?ID=${UserID}`;
 
     PostData({}, url).then(result => {
       let responseJson = result;
@@ -92,7 +92,7 @@ class Chat extends Component {
     saveData.append("message", this.state.text);
     saveData.append("from_id", UserID);
     saveData.append("datetime", date);
-    PostData(saveData, "http://localhost/hms-backend//api/msg.php")
+    PostData(saveData, "http://localhost/hms-backend/api/msg.php")
       .then(result => {
         let resultJSON = result;
         if (resultJSON.status === "success") {
@@ -122,7 +122,7 @@ class Chat extends Component {
     saveData.append("message", "");
     saveData.append("from_id", UserID);
     saveData.append("datetime", "");
-    PostData(saveData, "http://localhost/hms-backend//api/msg.php")
+    PostData(saveData, "http://localhost/hms-backend/api/msg.php")
       .then(result => {
         let resultJSON = result;
         if (resultJSON.status === "success") {
@@ -163,6 +163,14 @@ class Chat extends Component {
               <div className="chat-card mb-sm-3 mb-md-0 contacts_c ard">
                 <div className="card-header">
                   <div className="input-group">
+                    <button
+                      id="logout"
+                      type="button"
+                      className="btn btn-warning btn-sm"
+                      onClick={() => window.history.back()} // Go back to the previous page
+                    >
+                      Back
+                    </button>
                     <button
                       id="logout"
                       type="button"

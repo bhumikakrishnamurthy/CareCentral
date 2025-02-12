@@ -37,7 +37,7 @@ const ChangePassword = () => {
     data.append('cpassword', confirmPassword);
 
     try {
-      const response = await fetch('http://localhost/hms-backend//api/password-change.php', {
+      const response = await fetch('http://localhost/hms-backend/api/password-change.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',

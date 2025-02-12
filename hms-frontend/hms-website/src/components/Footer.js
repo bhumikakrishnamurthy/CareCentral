@@ -21,16 +21,18 @@ export default function Footer() {
       <div className="col-md-3 footer-middle">
         <h3>Address</h3>
         <div className="address">
-          <p>701 S Nedderman Dr, Arlington TX 76019
+          <p>R V College of Engineering, 
+              R V Vidyanikethan Post, 
+              Mysuru Road, Bengaluru - 560 059
           </p>
         </div>
         <div className="phone">
-          <p>7896541236</p>
+          <p>1234567890</p>
         </div>
       </div>
       <div className="col-md-3 footer-right">
-        <h3>A Star</h3>
-        <p>A Patient Management System is a robust software solution tailored to optimize and simplify the management tasks within healthcare facilities. It facilitates the seamless handling of patient data, encompassing registration, medical history, appointments, treatments, and billing information, thereby ensuring efficient operations and improved patient care.</p>
+        <h3>DBMS Project</h3>
+        <p>A HealthCare Management System is a robust software solution tailored to optimize and simplify the management tasks within healthcare facilities. It facilitates the seamless handling of patient data, encompassing registration, medical history, appointments, treatments, and billing information, thereby ensuring efficient operations and improved patient care.</p>
       </div>
       <div className="clearfix"> </div> 
     </div>

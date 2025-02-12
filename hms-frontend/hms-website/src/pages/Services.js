@@ -16,7 +16,7 @@ const Services = () => {
   useEffect(() => {
     const fetchFacilities = async () => {
       try {
-        const res = await fetch('http://localhost/hms-backend//api/facilities.php', {
+        const res = await fetch('http://localhost/hms-backend/api/facilities.php', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
