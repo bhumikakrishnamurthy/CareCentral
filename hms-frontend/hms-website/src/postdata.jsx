@@ -15,7 +15,7 @@ export function PostData(userData, BaseUrl) {
   }
   
   /* export function PostData(userData) {
-    let BaseUrl = "http://localhost/hms-backend//login/api/demo.php";
+    let BaseUrl = "http://localhost/login/api/demo.php";
        var formData = new FormData();
     formData.append("content", "test2", "ds", "test2");
   

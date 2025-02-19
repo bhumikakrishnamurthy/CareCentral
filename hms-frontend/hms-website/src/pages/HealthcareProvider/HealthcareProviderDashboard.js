@@ -7,7 +7,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('http://localhost/hms-backend//api/admindash.php', {
+        const res = await fetch('http://localhost/hms-backend/api/admindash.php', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

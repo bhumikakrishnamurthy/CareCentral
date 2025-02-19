@@ -16,6 +16,7 @@ export default function Footer() {
         <li><CustomLink to="/Login" >Login </CustomLink></li>
         <li><CustomLink to="/SignUp">SignUp </CustomLink></li>
         <li><CustomLink to="https://www.health.harvard.edu/blog" external>Blog</CustomLink></li>
+        <li><CustomLink to="/Suggestions" className="custom-link">Suggestions</CustomLink></li>
         </ul>
       </div>
       <div className="col-md-3 footer-middle">
@@ -40,7 +41,7 @@ export default function Footer() {
 <div className="copyright">
     <div className="container">
       <div className="copyright-left">
-      <p>© 2023 Patient Management System </p>
+      <p>© 2025 Patient Management System </p>
       </div>
       <div className="copyright-right">
         <ul>

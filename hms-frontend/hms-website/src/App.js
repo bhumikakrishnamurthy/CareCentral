@@ -10,6 +10,10 @@ import { Fab } from '@mui/material';
 import { Notifications as NotificationsIcon } from '@mui/icons-material';
 
 
+
+
+
+
 import Footer from './components/Footer';
 
 //MainPages
@@ -70,6 +74,10 @@ import PatientMyBlogs from './pages/user/PatientMyBlogs'
 import PatientAddBlog from './pages/user/PatientAddBlog'
 import PatientPrescription from './pages/user/PatientPrescription'
 
+
+import Suggestions from "./pages/Suggestions";
+
+
 function App() {
   return (
     <Router>
@@ -78,6 +86,9 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Services" element={<Services />} />
+
+        <Route path="/suggestions" element={<Suggestions />} />
+
 
         <Route path="/Login" element={<Login />} />
         <Route path='/SignUp' element={<SignUp/>}/>
@@ -126,7 +137,14 @@ function App() {
         <Route path="/PatientMyBlogs" element={<PatientMyBlogs />} />
         <Route path="/PatientAddBlog" element={<PatientAddBlog />} />
         <Route path="/PatientPrescription" element={<PatientPrescription />} />
+        
 
+
+
+        
+       
+        
+      
 
       </Routes>
       <Fab

@@ -29,7 +29,7 @@ const PrescriptionPage = () => {
         }
 
         // Fetch data from PHP endpoint with the user ID as a query parameter
-        const response = await fetch(`http://localhost/hms-backend//api/fetchPrescriptions.php?userID=${userId}`);
+        const response = await fetch(`http://localhost/hms-backend/api/fetchPrescriptions.php?userID=${userId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch prescriptions data');
         }

@@ -12,7 +12,7 @@ const ManagePharmacistAdmin = () => {
 
   const fetchPharmacists = async () => {
     try {
-      const response = await fetch('http://localhost/hms-backend//api/getpharmacists.php', {
+      const response = await fetch('http://localhost/hms-backend/api/getpharmacists.php', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const ManagePharmacistAdmin = () => {
 
   const handleToggleStatus = async (ID) => {
     try {
-      const response = await fetch('http://localhost/hms-backend//api/getpharmacists.php', {
+      const response = await fetch('http://localhost/hms-backend/api/getpharmacists.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

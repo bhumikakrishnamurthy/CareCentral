@@ -1,7 +1,7 @@
 {
   "name": "hms-website",
-  "homepage": "http://localhost/hms-backend//",
-  "proxy": "http://localhost/hms-backend/",
+  "homepage": "http://localhost/",
+  "proxy": "http://localhost",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

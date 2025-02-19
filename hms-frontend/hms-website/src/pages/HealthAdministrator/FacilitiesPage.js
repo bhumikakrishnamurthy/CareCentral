@@ -12,7 +12,7 @@ const FacilitiesPage = () => {
   useEffect(() => {
     const fetchFacilities = async () => {
       try {
-        const res = await fetch('http://localhost/hms-backend//api/facilities.php', {
+        const res = await fetch('http://localhost/hms-backend/api/facilities.php', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const FacilitiesPage = () => {
 
   const handleSave = async () => {
     try {
-      const res = await fetch('http://localhost/hms-backend//api/facilities.php', {
+      const res = await fetch('http://localhost/hms-backend/api/facilities.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

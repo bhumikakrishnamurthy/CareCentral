@@ -113,6 +113,11 @@ function Header() {
                 Blog
               </CustomLink>
             </li>
+            <li>
+              <CustomLink to="/Suggestions" className="custom-link">
+                Suggestions
+              </CustomLink>
+            </li>
           </ul>
         </div>
         <div className="hamburger-menu" style={hamburgerMenuStyle} onClick={toggleMenu}>

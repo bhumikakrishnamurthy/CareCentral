@@ -268,7 +268,8 @@ class Chat extends Component {
                         console.log(
                           "UserID",
                             UserID
-                        );                        console.log(
+                        );                       
+                        console.log(
                           "u.from_id",
                           u.from_id
                         );

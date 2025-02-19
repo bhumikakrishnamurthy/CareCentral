@@ -17,7 +17,7 @@ function DataOversight() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost/hms-backend//api/getverified.php');
+      const response = await fetch('http://localhost/hms-backend/api/getverified.php');
       const data = await response.json();
       setUserCounts(data);
     } catch (error) {
@@ -44,14 +44,14 @@ function DataOversight() {
         <h2>Server Status</h2>
         <div className="server-box">
   <div className="status-info">
-    <span>Domain: http://localhost/hms-backend//</span>
+    <span>Domain: http://localhost/</span>
     <FaServer className="server-icon online" />
     <span>Status: ONLINE</span>
   </div>
 </div>
 <div className="server-box">
   <div className="status-info">
-    <span>Domain: http://localhost/hms-backend//</span>
+    <span>Domain: http://localhost/</span>
     <FaServer className="server-icon online" />
     <span>Status: ONLINE</span>
   </div>

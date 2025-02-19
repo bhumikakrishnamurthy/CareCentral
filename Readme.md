@@ -112,7 +112,7 @@ Use your terminal (e.g., VS Code's) to run the following commands:
     ```
  2. **🔍 Bulk Search & Replace:**
 
-	You need to update endpoints , use your code editor's "Find and Replace" feature (often Ctrl/Cmd + Shift + F). Replace instances of `http://localhost/hms-backend/` with the actual URL of your hosted API or `http://localhost/hms-backend/` (if locally hosted API).
+	You need to update endpoints , use your code editor's "Find and Replace" feature (often Ctrl/Cmd + Shift + F). Replace instances of `http://localhost` with the actual URL of your hosted API or `http://localhost` (if locally hosted API).
 		 
 3.  **Install Dependencies:**
     ```
@@ -123,7 +123,7 @@ Use your terminal (e.g., VS Code's) to run the following commands:
     ```
     npm start
     ```
-> Open [http://localhost/hms-backend/:3000](http://localhost/hms-backend/:3000/) in your browser to see the app.
+> Open [http://localhost:3000](http://localhost:3000/) in your browser to see the app.
 
 
 ## 📂 Database Configuration
@@ -144,7 +144,7 @@ Use your terminal (e.g., VS Code's) to run the following commands:
   <br>
            
 >   **Cloud Hosting (to avoid CORS errors):**
-           Replace  `header('Access-Control-Allow-Origin: http://localhost/hms-backend/:3000');`
+           Replace  `header('Access-Control-Allow-Origin: http://localhost:3000');`
         <br> 
            With  `header('Access-Control-Allow-Origin: http://example.com');`
            (Substitute  `http://example.com`  with your actual domain)

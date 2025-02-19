@@ -19,7 +19,7 @@ const PatientSingleBlogPage = () => {
   // Function to fetch blog by ID
   const fetchBlog = async () => {
     try {
-      const response = await fetch(`http://localhost/hms-backend//api/fetchBlogs.php?id=${id}`);
+      const response = await fetch(`http://localhost/hms-backend/api/fetchBlogs.php?id=${id}`);
       if (!response.ok) {
         throw new Error('Failed to fetch blog');
       }
@@ -33,7 +33,7 @@ const PatientSingleBlogPage = () => {
   // Function to fetch comments for the blog
   const fetchComments = async () => {
     try {
-      const response = await fetch(`http://localhost/hms-backend//api/fetchComments.php?blogId=${id}`);
+      const response = await fetch(`http://localhost/hms-backend/api/fetchComments.php?blogId=${id}`);
       if (!response.ok) {
         throw new Error('Failed to fetch comments');
       }
@@ -48,7 +48,7 @@ const PatientSingleBlogPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost/hms-backend//api/addComment.php', {
+      const response = await fetch('http://localhost/hms-backend/api/addComment.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ const PatientSingleBlogPage = () => {
   // Function to delete a comment
   const handleDelete = async (commentId) => {
     try {
-      const response = await fetch('http://localhost/hms-backend//api/deleteComment.php', {
+      const response = await fetch('http://localhost/hms-backend/api/deleteComment.php', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

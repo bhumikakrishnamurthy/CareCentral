@@ -13,7 +13,7 @@ const ManageHealthcareProviders = () => {
 
   const fetchHCPs = async () => {
     try {
-      const response = await fetch('http://localhost/hms-backend//api/gethcps.php', {
+      const response = await fetch('http://localhost/hms-backend/api/gethcps.php', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ const ManageHealthcareProviders = () => {
 
   const handleToggleStatus = async (ID) => {
     try {
-      const response = await fetch('http://localhost/hms-backend//api/gethcps.php', {
+      const response = await fetch('http://localhost/hms-backend/api/gethcps.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ const ManageHealthcareProviders = () => {
   const handleUpdate = async (updatedHCP) => {
     try {
       // Send POST request to update healthcare provider details
-      const response = await fetch('http://localhost/hms-backend//api/updatehcp.php', {
+      const response = await fetch('http://localhost/hms-backend/api/updatehcp.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

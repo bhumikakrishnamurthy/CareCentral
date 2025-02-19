@@ -12,7 +12,7 @@ const ManageHealthAdmins = () => {
 
   const fetchHealthAdmins = async () => {
     try {
-      const response = await fetch('http://localhost/hms-backend//api/gethas.php', {
+      const response = await fetch('http://localhost/hms-backend/api/gethas.php', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const ManageHealthAdmins = () => {
 
   const handleToggleStatus = async (ID) => {
     try {
-      const response = await fetch('http://localhost/hms-backend//api/gethas.php', {
+      const response = await fetch('http://localhost/hms-backend/api/gethas.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

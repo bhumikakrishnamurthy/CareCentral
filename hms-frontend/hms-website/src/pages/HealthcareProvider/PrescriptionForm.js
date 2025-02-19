@@ -22,7 +22,7 @@ function PrescriptionForm() {
   // Fetch patients data
   const fetchPatients = async () => {
     try {
-      const response = await fetch('http://localhost/hms-backend//api/getpatients.php');
+      const response = await fetch('http://localhost/hms-backend/api/getpatients.php');
       const data = await response.json();
       setPatients(data);
     } catch (error) {
@@ -33,7 +33,7 @@ function PrescriptionForm() {
   // Fetch pharmacists data
   const fetchPharmacists = async () => {
     try {
-      const response = await fetch('http://localhost/hms-backend//api/getpharmacists.php');
+      const response = await fetch('http://localhost/api/getpharmacists.php');
       const data = await response.json();
       setPharmacists(data);
     } catch (error) {
@@ -71,7 +71,7 @@ function PrescriptionForm() {
     };
 
     try {
-      const response = await fetch('http://localhost/hms-backend//api/createPrescription.php', {
+      const response = await fetch('http://localhost/api/createPrescription.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

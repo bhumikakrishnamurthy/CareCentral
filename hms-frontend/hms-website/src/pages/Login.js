@@ -62,7 +62,7 @@ export default function Login() {
     } else if (!isNaN(username)) {
       
       try {
-        const response = await fetch('http://localhost/api/Loginid.php', {
+        const response = await fetch('http://localhost/hms-backend/api/Loginid.php', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

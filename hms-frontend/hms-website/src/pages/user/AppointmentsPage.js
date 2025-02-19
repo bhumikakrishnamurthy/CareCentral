@@ -31,7 +31,7 @@ const AppointmentsPage = () => {
 
   const fetchAppointments = async (userID) => {
     try {
-      const response = await fetch(`http://localhost/hms-backend//api/scheduleAppointment.php?PatientID=${userID}`, {
+      const response = await fetch(`http://localhost/hms-backend/api/scheduleAppointment.php?PatientID=${userID}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const AppointmentsPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost/hms-backend//api/scheduleAppointment.php', {
+      const response = await fetch('http://localhost/hms-backend/api/scheduleAppointment.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ const AppointmentsPage = () => {
 
   const handleSaveEdit = async (appointmentId) => {
     try {
-      const response = await fetch('http://localhost/hms-backend//api/scheduleAppointment.php', {
+      const response = await fetch('http://localhost/hms-backend/api/scheduleAppointment.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ const AppointmentsPage = () => {
 
   const handleDelete = async (appointmentId) => {
     try {
-      const response = await fetch('http://localhost/hms-backend//api/scheduleAppointment.php', {
+      const response = await fetch('http://localhost/hms-backend/api/scheduleAppointment.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

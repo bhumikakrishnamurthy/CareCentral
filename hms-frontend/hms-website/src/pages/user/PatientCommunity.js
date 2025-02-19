@@ -17,7 +17,7 @@ const PatientCommunity = () => {
 
   const fetchBlogs = async () => {
     try {
-      const response = await fetch('http://localhost/hms-backend//api/fetchBlogs.php');
+      const response = await fetch('http://localhost/hms-backend/api/fetchBlogs.php');
       if (!response.ok) {
         throw new Error('Failed to fetch blogs');
       }

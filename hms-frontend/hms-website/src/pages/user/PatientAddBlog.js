@@ -9,7 +9,7 @@ const AddBlog = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://localhost/hms-backend//api/addBlog.php', {
+      const response = await fetch('http://localhost/hms-backend/api/addBlog.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

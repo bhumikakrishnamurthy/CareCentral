@@ -17,7 +17,7 @@ const PatientMyBlogs = () => {
 
   const fetchBlogs = async () => {
     try {
-      const response = await fetch('http://localhost/hms-backend//api/fetchBlogs.php');
+      const response = await fetch('http://localhost/hms-backend/api/fetchBlogs.php');
       if (!response.ok) {
         throw new Error('Failed to fetch blogs');
       }
@@ -45,7 +45,7 @@ const PatientMyBlogs = () => {
 // Function to handle deletion of a blog
 const handleDelete = async (blogId) => {
   try {
-    const response = await fetch(`http://localhost/hms-backend//api/deleteBlog.php?id=${blogId}`, {
+    const response = await fetch(`http://localhost/api/deleteBlog.php?id=${blogId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
