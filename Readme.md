@@ -1,10 +1,10 @@
-﻿# 💊 HealthHub: Integrated Healthcare Ecosystem
+﻿# 🏥 CareCentral: Healthcare Management Ecosystem
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 
 ![Homepage](https://github.com/vatsalcshah/HealthHub/blob/main/Screenshots/Homepage.png)
 
-HealthHub is a full-stack healthcare management platform developed over a **7-day coding challenge**. It seamlessly connects patients, healthcare providers, pharmacists, and administrators, providing a user-friendly interface for various healthcare needs. It is fully responsive and dynamic.
+CareCentral is a full-stack healthcare management platform developed. It seamlessly connects patients, healthcare providers, pharmacists, and administrators, providing a user-friendly interface for various healthcare needs. It is fully responsive and dynamic.
 
 ## 💻 Technologies Used
 <table border="1">
